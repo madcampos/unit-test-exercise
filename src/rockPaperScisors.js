@@ -11,21 +11,51 @@
  * @param {string} player2 Entrada do jogador 2.
  *
  * @returns {string} O resultado.
+ * @throws {Error} Erro caso as entradas sejam inválidas.
  */
 module.exports = function rockPaperScisors(player1, player2) {
-	if (player1 === player2) {
+	if (typeof player1 !== 'string') {
+		throw new Error('Entrada inválida');
+	}
+
+	if (typeof player2 !== 'string') {
+		throw new Error('Entrada inválida');
+	}
+
+	const newPlayer1 = player1.trim().toLowerCase();
+	const newPlayer2 = player2.trim().toLowerCase();
+
+	if (newPlayer1 === '') {
+		throw new Error('Entrada inválida');
+	}
+
+	if (newPlayer2 === '') {
+		throw new Error('Entrada inválida');
+	}
+
+	const palavrasVálidas = ['pedra', 'papel', 'tesoura'];
+
+	if (!palavrasVálidas.includes(newPlayer1)) {
+		throw new Error('Entrada inválida');
+	}
+
+	if (!palavrasVálidas.includes(newPlayer2)) {
+		throw new Error('Entrada inválida');
+	}
+
+	if (newPlayer1 === newPlayer2) {
 		return 'Empate!';
 	}
 
-	if (player1 === 'pedra' && player2 === 'papel') {
+	if (newPlayer1 === 'pedra' && newPlayer2 === 'papel') {
 		return 'Jogador 2 venceu!';
 	}
 
-	if (player1 === 'papel' && player2 === 'tesoura') {
+	if (newPlayer1 === 'papel' && newPlayer2 === 'tesoura') {
 		return 'Jogador 2 venceu!';
 	}
 
-	if (player1 === 'tesoura' && player2 === 'pedra') {
+	if (newPlayer1 === 'tesoura' && newPlayer2 === 'pedra') {
 		return 'Jogador 2 venceu!';
 	}
 

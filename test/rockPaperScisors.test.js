@@ -29,3 +29,38 @@ tap.test('Verifica se o jogador 2 ganha', (assert) => {
 
 	assert.end();
 });
+
+tap.test('Verifica maísuculas e minúsculas', (assert) => {
+	assert.equal(rps('PEDRA', 'pedra'), 'Empate!');
+	assert.equal(rps('pedra', 'PEDRA'), 'Empate!');
+	assert.equal(rps('PEDRA', 'PEDRA'), 'Empate!');
+
+	assert.end();
+});
+
+tap.test('String vazia', (assert) => {
+	assert.throws(() => rps('', 'pedra'), { message: 'Entrada inválida' });
+	assert.throws(() => rps('pedra', ''), { message: 'Entrada inválida' });
+
+	assert.end();
+});
+
+tap.test('Entrada que não seja definida', (assert) => {
+	assert.throws(() => rps('batata', 'pedra'), { message: 'Entrada inválida' });
+	assert.throws(() => rps('pedra', 'sabão'), { message: 'Entrada inválida' });
+
+	assert.end();
+});
+
+tap.test('Tipos diferentes', (assert) => {
+	assert.throws(() => rps(0, 'pedra'), { message: 'Entrada inválida' });
+	assert.throws(() => rps([], 'pedra'), { message: 'Entrada inválida' });
+	assert.throws(() => rps(false, 'pedra'), { message: 'Entrada inválida' });
+	assert.throws(() => rps({}, 'pedra'), { message: 'Entrada inválida' });
+	assert.throws(() => rps('pedra', 0), { message: 'Entrada inválida' });
+	assert.throws(() => rps('pedra', []), { message: 'Entrada inválida' });
+	assert.throws(() => rps('pedra', false), { message: 'Entrada inválida' });
+	assert.throws(() => rps('pedra', {}), { message: 'Entrada inválida' });
+
+	assert.end();
+});
