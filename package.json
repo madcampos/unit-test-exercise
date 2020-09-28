@@ -36,6 +36,9 @@
 		}
 	},
 	"lint-staged": {
-		"*.{js, mjs}": "eslint"
+		"*.{js, mjs}": [
+			"eslint",
+			"tap"
+		]
 	}
 }
