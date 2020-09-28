@@ -5,7 +5,14 @@
  */
 const readline = require('readline');
 
-module.exports = function readUserInput(question) {
+/**
+ * Lê e retorna uma entrada do usuário do console.
+ *
+ * @param {string} [question] O texto para exibir no console.
+ *
+ * @returns {string} A resposta do usuário.
+ */
+module.exports = function readUserInput(question = '') {
 	return new Promise((resolve) => {
 		const readlineInterface = readline.createInterface({
 			input: process.stdin,
