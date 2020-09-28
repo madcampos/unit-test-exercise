@@ -36,6 +36,6 @@
 		}
 	},
 	"lint-staged": {
-		"*.{js, mjs}": "npm run lint"
+		"*.{js, mjs}": "eslint"
 	}
 }
