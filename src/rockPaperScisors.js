@@ -13,9 +13,21 @@
  * @returns {string} O resultado.
  */
 module.exports = function rockPaperScisors(player1, player2) {
-	const result = '';
+	if (player1 === player2) {
+		return 'Empate!';
+	}
 
-	// TODO: implementar
+	if (player1 === 'pedra' && player2 === 'papel') {
+		return 'Jogador 2 venceu!';
+	}
 
-	return result;
+	if (player1 === 'papel' && player2 === 'tesoura') {
+		return 'Jogador 2 venceu!';
+	}
+
+	if (player1 === 'tesoura' && player2 === 'pedra') {
+		return 'Jogador 2 venceu!';
+	}
+
+	return 'Jogador 1 venceu!';
 };
