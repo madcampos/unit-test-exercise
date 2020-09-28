@@ -1,0 +1,41 @@
+{
+	"name": "unit-test-exercise",
+	"version": "1.0.0",
+	"description": "Exercise to learn unit testing basics",
+	"main": "src/index.js",
+	"engines": {
+		"node": ">=14.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/madcampos/unit-test-exercise.git"
+	},
+	"scripts": {
+		"start": "node src/index.js",
+		"test": "tap",
+		"lint": "eslint . --fix"
+	},
+	"keywords": [
+		"unit-test",
+		"exercise",
+		"learn"
+	],
+	"author": "madcampos",
+	"license": "MIT",
+	"dependencies": {
+		"eslint": "^7.10.0",
+		"eslint-plugin-jsdoc": "^30.6.0",
+		"eslint-plugin-node": "^11.1.0",
+		"husky": "^4.3.0",
+		"lint-staged": "^10.4.0",
+		"tap": "^14.10.8"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js, mjs}": "npm run lint"
+	}
+}
